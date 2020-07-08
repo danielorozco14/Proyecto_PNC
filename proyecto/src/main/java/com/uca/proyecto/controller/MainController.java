@@ -120,13 +120,10 @@ public class MainController {
 		/*System.out.println("CENTRO ESCOLAR: "+ce.getCentroEscolar());
 		
 		*/		
-<<<<<<< HEAD
+
 		CentroEscolar centro = new CentroEscolar();	
-=======
-		
-		CentroEscolar centro = new CentroEscolar();
+
 	
->>>>>>> 708f767b093c0024ace725fa6f58e8a0df8de3df
 		mav.addObject("centro", centro);
 		mav.addObject("municipios",municipios);
 		mav.setViewName("newCentro");
@@ -192,7 +189,7 @@ public class MainController {
 	}
 	
 	@RequestMapping("/update/materia/{id_materia}")//PARA INGRESAR  CENTRO ESCOLAR EDITADO
-	public ModelAndView showUpdateForm(@ModelAttribute Materia ma , @PathVariable("id_materia") Integer id_materia,BindingResult result) {
+	public ModelAndView showUpdateForm(@Valid @ModelAttribute Materia ma , @PathVariable("id_materia") Integer id_materia,BindingResult result) {
 
 		ModelAndView mav = new ModelAndView();
 		try {
@@ -209,7 +206,7 @@ public class MainController {
 				mat.setMateria(result.getFieldValue("materia").toString());
 				mat.setEstado(Boolean.valueOf(result.getFieldValue("estado").toString()));
 				
-				materiaService.update(id_materia, ma.getMateria(), ma.getEstado());
+				materiaService.save(mat);
 				mav.setViewName("catMateria");
 			}					
 		}catch(Exception e) {
