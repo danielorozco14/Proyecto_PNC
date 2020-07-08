@@ -41,7 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.antMatchers("/").permitAll()
 		.and()
 		.formLogin()
-		.loginPage("/login")
+		.loginPage("/")
 		.defaultSuccessUrl("/home")
 		.permitAll();
 		

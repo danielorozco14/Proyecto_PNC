@@ -28,7 +28,7 @@ public class RestController {
 		}
 		mav.addObject("username", username);
 		
-		mav.setViewName("user");
+		mav.setViewName("home");
 		
 		return mav;
 	}
@@ -48,7 +48,7 @@ public class RestController {
 		}
 		mav.addObject("username", username);
 		
-		mav.setViewName("admin");
+		mav.setViewName("home");
 		
 		return mav;
 	}
