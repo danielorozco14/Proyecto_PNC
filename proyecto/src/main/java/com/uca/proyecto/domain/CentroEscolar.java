@@ -41,21 +41,21 @@ public class CentroEscolar {
 	@Column(name = "estado")
 	private Boolean estado;
 
-	@OneToMany(mappedBy="id_centro_escolar",fetch=FetchType.EAGER)
-	List<Alumno> alumnos;
+	//@OneToMany(mappedBy="id_centro_escolar",fetch=FetchType.EAGER)
+	//List<Alumno> alumnos;
 	
 	
 	public CentroEscolar() {
 		
 	}	
 
-	public List<Alumno> getAlumnos() {
+	/*public List<Alumno> getAlumnos() {
 		return alumnos;
-	}
+	}*/
 
-	public void setAlumnos(List<Alumno> alumnos) {
+	/*public void setAlumnos(List<Alumno> alumnos) {
 		this.alumnos = alumnos;
-	}
+	}*/
 
 	public Integer getId_centro_escolar() {
 		return id_centro_escolar;

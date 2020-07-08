@@ -9,9 +9,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.uca.proyecto.formatter.MunicipioFormatter;
 
-@Configuration
-@EnableWebMvc
-@ComponentScan(value= {"com.uca.proyecto.domain"})//com.uca.proyecto.formatter
+//@Configuration
+//@EnableWebMvc
+//@ComponentScan(value= {"com.uca.proyecto.domain"})//com.uca.proyecto.formatter
 public class WebConfig extends WebMvcConfigurerAdapter{
 	
 	@Autowired

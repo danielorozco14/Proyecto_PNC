@@ -75,6 +75,10 @@ public class Materia {
 		this.estado = estado;
 	}
 	
+	public String getEstadoDelegate() {
+		return (this.estado)?"Activo":"Inactivo";
+	}
+	
 	
 	
 
