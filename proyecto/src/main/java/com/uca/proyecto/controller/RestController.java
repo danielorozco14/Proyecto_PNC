@@ -10,14 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class RestController {
 	
 	
-	@GetMapping("/")
-	public ModelAndView index() {
-		
-		ModelAndView mav = new ModelAndView();		
-		mav.setViewName("index");
-		
-		return mav;
-	}
 	
 	@GetMapping("/user")
 	public ModelAndView user() {
