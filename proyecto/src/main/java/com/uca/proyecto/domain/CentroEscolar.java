@@ -63,7 +63,6 @@ public class CentroEscolar {
 
 
 
-
 	public Integer getId_centro_escolar() {
 		return id_centro_escolar;
 	}
