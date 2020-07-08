@@ -5,36 +5,77 @@
 	<title>Proyecto - Login</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	
-</head>
-	<body>
-	
-			<form name="loginForm" th:action="@{/login}" method="post" class="text-center border border-light p-5" action="#!">
-			<p class="h4 mb-4">Inicio de sesion</p>
-				<div th:if="${param.error}" class= "alert alert-error">
-						Usuario y contraseña invalida					
-					</div>
-					<div th:if="${param.logout}" class="alert alert-success">
-						Has cerrado sesion.
-					</div>
-				<div class="form-row mb-4">
-										
-					<label for="username"> Nombre de Usuario</label>
-					<input class="form-control mb-4" type="text" id="username" name="username" placeholder="E-mail"/>
-					<label for="password"> Contraseña</label>
-					<input class="form-control" type="password" id="password" name="password"/>
-					
-				
-						<button type="submit" class="btn btn-info my-4 btn-block">Entrar</button>
-								
-				</div>
-			
-			</form>			
-		</div>
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-	
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+	<body class="bg-gradient-primary">
+
+  <div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                  </div>
+                  <form name="loginForm" th:action="@{/login}" method="post" class="user" action="#!">
+                    <p class="h4 mb-4">Inicio de sesion</p>
+                  
+                      <div class="form-row mb-4">
+                        <div class="form-group">     
+                        <label for="username"> Nombre de Usuario</label>
+                        <input class="form-control form-control-user" type="text" id="username" name="username" placeholder="E-mail"/>
+                      </div>
+                      <div class="form-group">  
+                        <label for="password"> Contraseña</label>
+                        <input class="form-control form-control-user" type="password" id="password" name="password" placeholder="contraseña123"/>
+                      </div>
+                      
+                          <button type="submit" class="btn btn-primary btn-user btn-block">Entrar</button>
+                              
+                      </div>
+                    
+                    </form>		
+
+                  <hr>
+                  
+                  <div class="text-center">
+                    <a class="small" href="register.html">Create an Account!</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
 
 	</body>
 </html>

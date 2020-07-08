@@ -120,7 +120,13 @@ public class MainController {
 		/*System.out.println("CENTRO ESCOLAR: "+ce.getCentroEscolar());
 		
 		*/		
+<<<<<<< HEAD
 		CentroEscolar centro = new CentroEscolar();	
+=======
+		
+		CentroEscolar centro = new CentroEscolar();
+	
+>>>>>>> 708f767b093c0024ace725fa6f58e8a0df8de3df
 		mav.addObject("centro", centro);
 		mav.addObject("municipios",municipios);
 		mav.setViewName("newCentro");
