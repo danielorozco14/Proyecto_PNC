@@ -9,11 +9,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+
 import com.uca.proyecto.domain.CentroEscolar;
 import com.uca.proyecto.domain.Municipio;
 import com.uca.proyecto.service.CentrosService;
@@ -100,6 +103,48 @@ public class MainController {
 //				muni.setId_municipio(Integer.parseInt(result.getFieldValue("id_municipio").toString()));
 				System.out.println("ID DEL MUNICIPIO: "+ result.getFieldValue("id_municipio").toString());
 	//			ce.setId_municipio(muni);
+				centroService.save(ce);
+				mav.setViewName("catCentros");
+			}					
+		}catch(Exception e) {
+			e.printStackTrace();
+		}	
+		
+		
+		return mav;
+	}
+	@GetMapping("/new")
+	public ModelAndView newCentroEscolar() {
+		ModelAndView mav = new ModelAndView();
+		
+		
+		
+		List<Municipio> municipios= muniService.findAll();
+		/*System.out.println("CENTRO ESCOLAR: "+ce.getCentroEscolar());
+		
+		*/		
+		CentroEscolar centro = new CentroEscolar();
+	
+		mav.addObject("centro", centro);
+		mav.addObject("municipios",municipios);
+		mav.setViewName("newCentro");
+		
+		return mav;
+	}
+	
+	//SAVE
+	@RequestMapping("/agregarL")
+	public ModelAndView newForm(@ModelAttribute CentroEscolar ce,BindingResult result) {
+
+		ModelAndView mav = new ModelAndView();
+		try {
+			if(result.hasErrors()) {
+					mav.setViewName("newCentro");
+			}else {
+				
+			
+
+
 				centroService.save(ce);
 				mav.setViewName("catCentros");
 			}					

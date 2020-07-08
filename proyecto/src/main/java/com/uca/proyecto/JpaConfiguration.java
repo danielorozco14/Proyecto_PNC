@@ -16,7 +16,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 public class JpaConfiguration {
 		
 		private String user="postgres";
-		private String pass="root";
+		private String pass="codmw3msr";
 		
 		
 		@Bean
