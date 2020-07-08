@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -188,7 +189,7 @@ public class MainController {
 		return mav;
 	}
 	
-	@RequestMapping("/update/materia/{id_materia}")//PARA INGRESAR  CENTRO ESCOLAR EDITADO
+	@RequestMapping(value="/update/materia/{id_materia}", method=RequestMethod.POST)//PARA INGRESAR  CENTRO ESCOLAR EDITADO
 	public ModelAndView showUpdateForm(@Valid @ModelAttribute Materia ma , @PathVariable("id_materia") Integer id_materia,BindingResult result) {
 
 		ModelAndView mav = new ModelAndView();
@@ -201,12 +202,8 @@ public class MainController {
 				muni.setId_municipio(Integer.parseInt(result.getFieldValue("id_municipio").toString()));
 				System.out.println("HASDFSDFASDJLFADFJSLDFSDF");
 				ce.setId_municipio(muni);*/
-				Materia mat = new Materia();
-				mat.setId_materia(id_materia);
-				mat.setMateria(result.getFieldValue("materia").toString());
-				mat.setEstado(Boolean.valueOf(result.getFieldValue("estado").toString()));
 				
-				materiaService.save(mat);
+				materiaService.save(ma);
 				mav.setViewName("catMateria");
 			}					
 		}catch(Exception e) {
