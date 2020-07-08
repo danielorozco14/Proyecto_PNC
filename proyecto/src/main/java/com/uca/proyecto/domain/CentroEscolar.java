@@ -41,18 +41,18 @@ public class CentroEscolar {
 	@Column(name = "estado")
 	private Boolean estado;
 
-<<<<<<< HEAD
+
 	//@OneToMany(mappedBy="id_centro_escolar",fetch=FetchType.EAGER)
 	//List<Alumno> alumnos;
-=======
->>>>>>> 708f767b093c0024ace725fa6f58e8a0df8de3df
+
+
 	
 	
 	public CentroEscolar() {
 		
 	}	
 
-<<<<<<< HEAD
+
 	/*public List<Alumno> getAlumnos() {
 		return alumnos;
 	}*/
@@ -60,10 +60,9 @@ public class CentroEscolar {
 	/*public void setAlumnos(List<Alumno> alumnos) {
 		this.alumnos = alumnos;
 	}*/
-=======
 
-	
->>>>>>> 708f767b093c0024ace725fa6f58e8a0df8de3df
+
+
 
 	public Integer getId_centro_escolar() {
 		return id_centro_escolar;
