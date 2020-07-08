@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,10 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.uca.proyecto.domain.Alumno;
 import com.uca.proyecto.domain.CentroEscolar;
 import com.uca.proyecto.domain.Materia;
 import com.uca.proyecto.domain.Municipio;
+import com.uca.proyecto.service.AlumnoService;
 import com.uca.proyecto.service.CentrosService;
 import com.uca.proyecto.service.MateriaService;
 import com.uca.proyecto.service.MunicipioService;
@@ -35,6 +37,9 @@ public class MainController {
 	
 	@Autowired
 	MateriaService materiaService;
+	
+	@Autowired
+	AlumnoService alumnoService;
 	
 	@RequestMapping("/home")
 	public ModelAndView homePage() {		
@@ -190,12 +195,14 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/update/materia/{id_materia}", method=RequestMethod.POST)//PARA INGRESAR  CENTRO ESCOLAR EDITADO
-	public ModelAndView showUpdateForm(@Valid @ModelAttribute Materia ma , @PathVariable("id_materia") Integer id_materia,BindingResult result) {
+	public String showUpdateForm(@PathVariable("id_materia") Integer id_materia,@Valid Materia ma ,BindingResult result, Model model) {
 
-		ModelAndView mav = new ModelAndView();
-		try {
+		//ModelAndView mav = new ModelAndView();
+		//try {
 			if(result.hasErrors()) {
-					mav.setViewName("editMateria");
+				ma.setId_materia(id_materia);
+					//mav.setViewName("editMateria");
+				return "editMateria";
 			}else {			
 				/*Municipio muni = new Municipio();
 				
@@ -204,15 +211,37 @@ public class MainController {
 				ce.setId_municipio(muni);*/
 				
 				materiaService.save(ma);
-				mav.setViewName("catMateria");
+				model.addAttribute("materias", materiaService.findAll());
+				//mav.setViewName("catMateria");
+				return "catMateria";
 			}					
-		}catch(Exception e) {
-			e.printStackTrace();
-		}	
+		//}catch(Exception e) {
+		///	e.printStackTrace();
+		//}	
 		
 		
+		//return mav;
+	}
+	
+	
+	@RequestMapping("/cat-alumnos")
+	public ModelAndView catalogoAlumnos() {
+		ModelAndView mav = new ModelAndView();
+		List<Alumno> alumnos = alumnoService.findAll();
+		
+		mav.addObject("alumnos", alumnos);
+		mav.setViewName("catAlumnos");		
 		return mav;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

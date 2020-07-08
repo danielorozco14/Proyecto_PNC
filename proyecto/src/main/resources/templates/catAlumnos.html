@@ -58,21 +58,16 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-  
-  <form th:action="@{/cat-materias}" >
+ <form th:action="@{/cat-materias}" >
 		<button type="submit" href="/catMateria" class="collapse-item">Materias</button><br>
 	</form>
 	
 	<form th:action="@{/cat-centros}" >
 		<button type="submit" href="/catCentros" class="collapse-item">Centros Escolares</button><br>	
 	</form>
-
-
-
-
-	<form th:action="@{/cat-alumnos}" >
-		<button type="submit" href="/catAlumnos" class="collapse-item">Alumnos</button><br>
-
+	
+	<form th:action="@{/cat-centros}" >
+		<button type="submit" href="/catCentros" class="collapse-item">Alumnos</button><br>
 	</form>
         
       
@@ -150,38 +145,56 @@
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
+         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-                <!-- Dropdown Card Example -->
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Projecto PNC</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  Una institución educativa privada ha implementado un proyecto de estudiantes becados, con el objetivo de permitir a estudiantes que vienen de familias de escasos recursos estudiar en dicha institución. La junta directiva, ha pedido al Departamento de Informática de la Institución, que desarrolle un sistema computacional para la administración de dichos estudiantes..
-                </div>
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Tabla</h1>
+          <p class="mb-4">Tabla de Alumnos 
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Alumnos</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                
+<thead>
+					<th scope="col">Accion</th>
+					<th scope="col">Codigo </th>
+					<th scope="col">Nombre </th>
+					<th scope="col">Apellido </th>
+					<th scope="col">Fecha Nac. </th>
+					<th scope="col">Centro Escolar </th>
+					</thead>
+					<th:block th:each="c,row:${alumnos}">
+						
+							<tr>
+								<th><a th:href="@{/edit/alumno/{carnet}(carnet=${c.carnet})}">Editar</a></th>
+							
+								<th scope="row" th:text="${c.carnet}"/>
+								<th scope="row" th:text="${c.nombre}"/>
+								<th scope="row" th:text="${c.apellido}"/>
+								<th scope="row" th:text="${c.fecha_de_nacimiento}"/>								
+								<th scope="row" th:text="${c.id_centro_escolar.getCentroEscolar()}"/>
+								<!-- th scope="row" th:text="${c.codigoCategoria.getNombreCategoria()}"/-->
+								<!--  th scope="row" th:text="${c.getEstadoDelegate()}"/>
+								-->									
+							</tr>	
+						
+					</th:block>		
+                </table>
               </div>
+            </div>
+          </div>
 
         </div>
         <!-- /.container-fluid -->
 
       </div>
-      <!-- End of Main Content -->
+
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -217,10 +230,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <form th:action="@{/logout}" >
-		<button type="submit" href="/logout" class="btn btn-primary">logout</button><br>
-	</form>
-         
+          <a class="btn btn-primary" href="login.html">Logout</a>
         </div>
       </div>
     </div>
@@ -238,3 +248,6 @@
 
 </body>
 </html>
+
+
+
