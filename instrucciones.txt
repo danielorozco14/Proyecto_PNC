@@ -1,0 +1,4 @@
+Puerto PostgreSQL: por defecto (5432
+Nombre BD: proyecto;
+Usuarios: admin1;
+pass: root;

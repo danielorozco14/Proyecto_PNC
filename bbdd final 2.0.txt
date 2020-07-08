@@ -1,3 +1,4 @@
+CREATE DATABASE proyecto;
 CREATE TABLE public.departamento
 (
     id_departamento serial,
