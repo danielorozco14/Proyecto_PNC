@@ -1,6 +1,7 @@
 package com.uca.proyecto.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -18,8 +20,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-//@Entity
-//@Table(schema = "public", name = "rol")
+@Entity
+@Table(schema = "public", name = "rol")
 public class Rol {
 
 	@Id
@@ -27,8 +29,11 @@ public class Rol {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_rol;
 	
-	@Column(name = "estado")
-	private Boolean rol = false;
+	@Column(name = "rol")
+	private String roles;
+	
+	@OneToMany(mappedBy="id_rol",fetch=FetchType.EAGER)
+	List<Usuario> usuarios;
 
 	public Rol() {
 		
@@ -42,12 +47,12 @@ public class Rol {
 		this.id_rol = id_rol;
 	}
 
-	public Boolean getRol() {
-		return rol;
+	public String getRol() {
+		return roles;
 	}
 
-	public void setRol(Boolean rol) {
-		this.rol = rol;
+	public void setRol(String rol) {
+		this.roles = rol;
 	}
 	
 	

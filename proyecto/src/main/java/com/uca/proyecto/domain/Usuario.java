@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -18,8 +19,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-//@Entity
-//@Table(schema = "public", name = "Usuarios")
+@Entity
+@Table(schema = "public", name = "Usuario")
 public class Usuario {
 
 	@Id
@@ -50,16 +51,17 @@ public class Usuario {
 	
 	@Size(message = "El nombre de usuario no puede tener mas de 50 caracteres", max = 50)
 	@NotEmpty(message = "Este campo es obligatorio")
-    @Column(name = "nombre_de_usuario")
-	private String nombre_de_usuario;
+    @Column(name = "username")
+	private String userName;
 
 	@NotEmpty(message = "Este campo es obligatorio")
 	@Column(name = "password")
 	private String password;
 
 	@NotEmpty(message = "Este campo es obligatorio")
-    @Column(name = "id_rol")
-	private Integer id_rol ;
+    @JoinColumn(name = "id_rol")
+	@ManyToOne(fetch=FetchType.EAGER)
+	Rol id_rol ; //Integer id_rol;
 
 
     @NotEmpty(message = "Este campo es obligatorio")
@@ -147,13 +149,13 @@ public class Usuario {
 
 
 	public String getNombre_de_usuario() {
-		return nombre_de_usuario;
+		return userName;
 	}
 
 
 
 	public void setNombre_de_usuario(String nombre_de_usuario) {
-		this.nombre_de_usuario = nombre_de_usuario;
+		this.userName = nombre_de_usuario;
 	}
 
 
@@ -170,13 +172,13 @@ public class Usuario {
 
 
 
-	public Integer getId_rol() {
+	public Rol getId_rol() {
 		return id_rol;
 	}
 
 
 
-	public void setId_rol(Integer id_rol) {
+	public void setId_rol(Rol id_rol) {
 		this.id_rol = id_rol;
 	}
 

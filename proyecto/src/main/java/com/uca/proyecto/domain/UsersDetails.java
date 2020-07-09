@@ -1,5 +1,6 @@
 package com.uca.proyecto.domain;
 
+import java.util.Date;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -11,16 +12,29 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class UsersDetails implements UserDetails {
 	
+	private Integer id_usuario;
+	private Date fecha_de_nacimiento;
+	private Integer departamento;
+	private Integer municipio_de_residencia;
+	private String direccion;
+	private boolean estado;
 	private String userName;//Hecho por mi
 	private String password;
-	private boolean active;
+	
 	private List<GrantedAuthority> authorities;
 	
-	public UsersDetails(User user) {//Hecho por mi
-		this.userName=user.getUserName();
+	public UsersDetails(Usuario user) {//Hecho por mi
+		this.id_usuario=user.getId_usuario();
+		this.fecha_de_nacimiento=user.getFecha_de_nacimiento();
+		this.departamento=user.getDepartamento();
+		this.municipio_de_residencia=user.getMunicipio_de_residencia();
+		this.direccion=user.getDireccion();	
+		this.estado=user.getEstado();
+		
+		this.userName=user.getNombre_de_usuario();
 		this.password= user.getPassword();
-		this.active=user.isActive();
-		this.authorities= Arrays.stream(user.getRoles().split(","))
+		
+		this.authorities= Arrays.stream(user.getId_rol().getRol().split(","))
 				.map(SimpleGrantedAuthority::new)
 				.collect(Collectors.toList());
 	}
@@ -69,7 +83,7 @@ public class UsersDetails implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return active;
+		return estado;
 	}
 
 	
