@@ -25,7 +25,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	 String[] resources = new String[]{
 	            "/vendor/**","/css/**","/icons/**","/img/**","/js/**","/scss/**"
 	    };
-	
 
 
 

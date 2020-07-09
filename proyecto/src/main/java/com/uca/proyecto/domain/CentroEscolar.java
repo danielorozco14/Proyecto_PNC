@@ -45,6 +45,7 @@ public class CentroEscolar {
 	//@OneToMany(mappedBy="id_centro_escolar",fetch=FetchType.EAGER)
 	//List<Alumno> alumnos;
 
+
 	
 	
 	public CentroEscolar() {
@@ -59,6 +60,7 @@ public class CentroEscolar {
 	/*public void setAlumnos(List<Alumno> alumnos) {
 		this.alumnos = alumnos;
 	}*/
+
 
 
 	public Integer getId_centro_escolar() {
