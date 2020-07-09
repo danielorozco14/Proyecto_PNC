@@ -1,4 +1,3 @@
-CREATE DATABASE proyecto;
 CREATE TABLE public.departamento
 (
     id_departamento serial,
@@ -39,7 +38,7 @@ CREATE TABLE public.materia
 );
 CREATE TABLE public.alumno
 (
-    carnet character varying(9),
+    carnet integer,
     id_centro_escolar integer ,
 	nombre character varying(50),
 	apellido character varying(50),
@@ -58,7 +57,7 @@ CREATE TABLE public.alumno
 
 CREATE TABLE public.alumnoxmateria
  (
-	 carnet character varying(9),
+	 carnet integer,
 	 id_materia integer,
 	 anio integer,
 	 ciclo integer,
@@ -87,13 +86,13 @@ CREATE TABLE public.usuario
     id_usuario serial,
     fecha_de_nacimiento date ,
 	departamento_de_residencia integer,
-	municipio_de_residencia character varying(50),
+	municipio_de_residencia integer,
 	direccion character varying(100),
 	estado boolean,
 	nombre_de_usuario character varying(50),
 	contrasenia character varying(20),
 	id_rol integer,
-	carnet character varying (9),
+	carnet integer,
     CONSTRAINT id_usuario_pkey PRIMARY KEY (id_usuario),
 	CONSTRAINT fk_carnet FOREIGN KEY (carnet)
 	REFERENCES public.alumno (carnet) MATCH SIMPLE
@@ -106,13 +105,14 @@ CREATE TABLE public.usuario
 
 	);
 
--------------------------------------------INSERTS--------------------------------------------
+--------------------------------INSERTS------------------------------------------------
+
 INSERT INTO departamento  VALUES (1,'Ahuachapan'),(2,'Santa Ana'),(3,'Sonsonate'),(4,'La Libertad'),(5,'Chalatenango'),
 (6,'San Salvador'), (7,'Cuscatlan'), (8,'La Paz'), (9,'Cabañas'), (10,'San Vicente'), (11,'Usulutan'),
 (12,'Morazán'),(13,'San Miguel'), (14,'La Unión');
 
 INSERT INTO municipio VALUES 
-(1,N'Ahuachapan', 1)
+(1,N'Ahuachapan', 1),
 (2, N'Jujutla', 1),
 (3, N'Atiquizaya', 1),
 (4, N'Concepción de Ataco', 1),
@@ -402,3 +402,13 @@ INSERT INTO centro_escolar VALUES
 (8,'8','Liceo evangelico', true),
 (9,'9','Colegio Americano', true),
 (10,'10','Colegio Maya',true);
+
+insert into alumno values
+(004050017,1,'Alan','Brito','5/6/1998','Fondo de bikini',22577777,7562167, 'Homero Simpson','Marge Simpson');
+
+insert into alumnoxmateria values
+(004050017,1,2012,2,8,'aprobado');
+
+insert into usuario values
+(2,'6/5/1960',1,3,'Crustaceo Kascarudo',true,'kangreburguito','root',1,004050017);
+
