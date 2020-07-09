@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -18,20 +19,20 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-//@Entity
-//@Table(schema = "public", name = "alumnoxmateria")
+@Entity
+@Table(schema = "public", name = "alumnoxmateria")
 public class AlumnoXMateria {
 
-	
-	   @NotEmpty(message = "Este campo es obligatorio")
-		@Column(name = "carnet")
-		private String carnet;
-	
-
+	@Id
 	@NotEmpty(message = "Este campo es obligatorio")
-    @Column(name = "id_materia")
-	private int id_materia;
+	@Column(name = "carnet")
+	private String carnet;
 	
+	@NotEmpty(message = "Este campo es obligatorio")
+    @JoinColumn(name = "id_materia")
+	@ManyToOne(fetch=FetchType.EAGER)
+	Materia id_materia ; //Integer id_rol;
+
 	@NotEmpty(message = "Este campo es obligatorio")
     @Column(name = "anio")
 	private int anio;
@@ -62,11 +63,11 @@ public class AlumnoXMateria {
 		this.carnet = carnet;
 	}
 
-	public int getId_materia() {
+	public Materia getId_materia() {
 		return id_materia;
 	}
 
-	public void setId_materia(int id_materia) {
+	public void setId_materia(Materia id_materia) {
 		this.id_materia = id_materia;
 	}
 

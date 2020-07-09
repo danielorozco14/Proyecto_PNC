@@ -5,12 +5,10 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -18,15 +16,22 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-//@Entity
-//@Table(schema = "public", name = "alumno")
+@Entity
+@Table(schema = "public", name = "alumno")
 public class Alumno {
 
-	
+	@Id
 	@NotEmpty(message = "Este campo es obligatorio")
 	@Column(name = "carnet")
 	private String carnet;
+	
+	
+	@NotEmpty(message = "Este campo es obligatorio")
+	@JoinColumn(name = "id_centro_escolar")
+	@ManyToOne(fetch=FetchType.LAZY)
+	private CentroEscolar id_centro_escolar;
 
+	
 
 	@NotEmpty(message = "Este campo es obligatorio")
     @Column(name = "nombre")
@@ -39,7 +44,7 @@ public class Alumno {
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@NotNull(message = "Este campo es obligatorio")
-	@Column(name = "fecha_de_nacimiento")
+	@Column(name = "fecha_nac")
 	private Date fecha_de_nacimiento;
 
 	@Size(message = "La dirección no puede tener mas de 200 caracteres", max = 200)
@@ -78,6 +83,15 @@ public class Alumno {
 
 	public void setCarnet(String carnet) {
 		this.carnet = carnet;
+	}
+	
+	public CentroEscolar getId_centro_escolar() {
+		return id_centro_escolar;
+	}
+
+
+	public void setId_centro_escolar(CentroEscolar id_centro_escolar) {
+		this.id_centro_escolar = id_centro_escolar;
 	}
 
 

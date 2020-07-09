@@ -1,6 +1,7 @@
 package com.uca.proyecto.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -18,8 +20,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-//@Entity
-//@Table(schema = "public", name = "centro_escolar")
+@Entity
+@Table(schema = "public", name = "centro_escolar")
 public class CentroEscolar {
 
 	@Id
@@ -43,11 +45,27 @@ public class CentroEscolar {
 	@Column(name = "estado")
 	private Boolean estado;
 
+	@OneToMany(mappedBy="id_centro_escolar",fetch=FetchType.EAGER)
+	List<Alumno> alumnos;
 	
 	
 	public CentroEscolar() {
 		
 	}
+	
+	
+
+	public List<Alumno> getAlumnos() {
+		return alumnos;
+	}
+
+
+
+	public void setAlumnos(List<Alumno> alumnos) {
+		this.alumnos = alumnos;
+	}
+
+
 
 	public Integer getId_centro_escolar() {
 		return id_centro_escolar;
