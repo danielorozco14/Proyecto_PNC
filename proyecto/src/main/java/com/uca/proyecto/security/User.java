@@ -1,4 +1,4 @@
-package com.uca.proyecto.domain;
+package com.uca.proyecto.security;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,8 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="usuario")
+
+/*
+ * NO BORRAR, ARCHIVO EJEMPLO PARA SPRING SECURITY 
+ * 
+ * 
+ * 
+*/
+//@Entity
+//@Table(name="usuario")
 public class User {
 	
 	@Id
