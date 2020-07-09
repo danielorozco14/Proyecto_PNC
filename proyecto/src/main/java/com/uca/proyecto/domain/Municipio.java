@@ -18,8 +18,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity
-@Table(schema = "public", name = "municipio")
+//@Entity
+//@Table(schema = "public", name = "municipio")
 public class Municipio {
 
 	@Id

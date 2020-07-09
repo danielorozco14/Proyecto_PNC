@@ -18,15 +18,15 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity
-@Table(schema = "public", name = "alumno")
+//@Entity
+//@Table(schema = "public", name = "alumno")
 public class Alumno {
 
 	
-	   @NotEmpty(message = "Este campo es obligatorio")
-		@Column(name = "carnet")
-		private String carnet;
-	
+	@NotEmpty(message = "Este campo es obligatorio")
+	@Column(name = "carnet")
+	private String carnet;
+
 
 	@NotEmpty(message = "Este campo es obligatorio")
     @Column(name = "nombre")
