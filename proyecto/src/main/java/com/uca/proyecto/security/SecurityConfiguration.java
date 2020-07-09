@@ -21,10 +21,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailsService);
 	}
 	
+	String[] resources = new String[]{
+            "/vendor/","/css/","/icons/","/img/","/js/","/scss/"
+    };
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
 		.antMatchers("/admin").hasRole("ADMIN")
+	
+        .antMatchers(resources).permitAll()
 		.antMatchers("/user").hasAnyRole("ADMIN","USER")//CAMBIAR "/user" a las rutas que solo un usuario pueda acceder
 		.antMatchers("/cat-centros").hasAnyRole("ADMIN","USER")
 		.antMatchers("/").permitAll()

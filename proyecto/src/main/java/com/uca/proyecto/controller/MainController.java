@@ -123,6 +123,7 @@ public class MainController {
 		/*System.out.println("CENTRO ESCOLAR: "+ce.getCentroEscolar());
 		
 		*/		
+		
 		CentroEscolar centro = new CentroEscolar();
 	
 		mav.addObject("centro", centro);
