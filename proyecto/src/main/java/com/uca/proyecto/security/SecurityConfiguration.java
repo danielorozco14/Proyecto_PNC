@@ -21,16 +21,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailsService);
 	}
 	
-<<<<<<< HEAD
+
 	 String[] resources = new String[]{
 	            "/vendor/**","/css/**","/icons/**","/img/**","/js/**","/scss/**"
 	    };
 	
-=======
-	String[] resources = new String[]{
-            "/vendor/","/css/","/icons/","/img/","/js/","/scss/"
-    };
->>>>>>> 708f767b093c0024ace725fa6f58e8a0df8de3df
+
+
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
