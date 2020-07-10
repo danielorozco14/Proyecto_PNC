@@ -31,7 +31,7 @@ public class CentroEscolar {
 	private Integer id_centro_escolar;
 	
 	@JoinColumn(name = "id_municipio")
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
     Municipio id_municipio;
 
 	@NotEmpty(message = "Este campo es obligatorio")

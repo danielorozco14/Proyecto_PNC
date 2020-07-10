@@ -25,10 +25,10 @@
 		  		
 		  		<div class="form-group">
 		   			 <label for="formGroupExampleInput2">Municipio</label>
-		   			 <select name= "codMuni"class="form-control" th:field="*{id_municipio}" id="formGroupExampleInput2" > 
+		   			 <select class="form-control" th:field="*{id_municipio}" id="formGroupExampleInput2" > 
 		   			 	
 		   			 	<option th:each="cod:${municipios}"
-		   			 		th:value="${cod.id_municipio}"
+		   			 		th:value="${{cod.id_municipio}}"
 		   			 		th:text="${cod.municipio}"   			 	
 		   			 	/>		   			 
 		   			 </select>

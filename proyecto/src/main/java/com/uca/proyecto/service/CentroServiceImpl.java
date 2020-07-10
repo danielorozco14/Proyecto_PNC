@@ -10,7 +10,7 @@ import com.uca.proyecto.domain.CentroEscolar;
 import com.uca.proyecto.repository.CentrosRepository;
 
 @Service
-public class CentroServiceImpl implements CentrosService{
+public  class CentroServiceImpl implements CentrosService{
 	
 	@Autowired
 	CentrosRepository centroRepo;
@@ -45,6 +45,12 @@ public class CentroServiceImpl implements CentrosService{
 	public List<CentroEscolar> filtrarPor(String centro_escolar) throws DataAccessException {
 		// TODO Auto-generated method stub
 		return centroRepo.findByCentroEscolar(centro_escolar);
+	}
+
+	@Override
+	public void update(Integer idCE, Integer idMuni, String centroEsc, boolean Estado) throws DataAccessException {
+		centroRepo.updateCentroEscolar(idCE,idMuni,centroEsc,Estado);
+		
 	}
 
 }

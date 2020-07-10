@@ -66,14 +66,8 @@ public class MainController {
 	
 	@RequestMapping("/edit/{id_centro_escolar}")/////////// ESTEEE PREPARA LA PAGINA
 	public ModelAndView editCentroEscolar(@PathVariable("id_centro_escolar") Integer id_centro_escolar, @ModelAttribute CentroEscolar ce) {
-		ModelAndView mav = new ModelAndView();
-		
-		
-		
-		List<Municipio> municipios= muniService.findAll();
-		/*System.out.println("CENTRO ESCOLAR: "+ce.getCentroEscolar());
-		
-		*/		
+		ModelAndView mav = new ModelAndView();		
+		List<Municipio> municipios= muniService.findAll();	
 		CentroEscolar centro = new CentroEscolar();
 		try {
 			centro = centroService.findOne(id_centro_escolar);
@@ -88,18 +82,19 @@ public class MainController {
 	}
 	
 	@RequestMapping("/update/{id_centro_escolar}")//PARA INGRESAR  CENTRO ESCOLAR EDITADO
-	public ModelAndView showUpdateForm(@ModelAttribute CentroEscolar ce, @PathVariable("id_centro_escolar") Integer id_centro_escolar,BindingResult result) {
+	public ModelAndView showUpdateForm(@ModelAttribute CentroEscolar ce , @PathVariable("id_centro_escolar") Integer id_centro_escolar,BindingResult result) {
 
 		ModelAndView mav = new ModelAndView();
 		try {
 			if(result.hasErrors()) {
 					mav.setViewName("editCentro");
-			}else {
+			}else {			
+				/*Municipio muni = new Municipio();
 				
-				Municipio muni= new Municipio();
-//				muni.setId_municipio(Integer.parseInt(result.getFieldValue("id_municipio").toString()));
-				System.out.println("ID DEL MUNICIPIO: "+ result.getFieldValue("id_municipio").toString());
-	//			ce.setId_municipio(muni);
+				muni.setId_municipio(Integer.parseInt(result.getFieldValue("id_municipio").toString()));
+				System.out.println("HASDFSDFASDJLFADFJSLDFSDF");
+				ce.setId_municipio(muni);*/
+				
 				centroService.save(ce);
 				mav.setViewName("catCentros");
 			}					

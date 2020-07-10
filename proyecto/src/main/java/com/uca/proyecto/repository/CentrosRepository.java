@@ -18,5 +18,12 @@ public interface CentrosRepository extends JpaRepository<CentroEscolar, Integer>
 	
 	@Query(nativeQuery = true, value = "SELECT * FROM public.centro_escolar WHERE centro_escolar = :Nombre")
 	public List<CentroEscolar> showByName(String Nombre) throws DataAccessException;	
+	
+	@Query(nativeQuery=true, value="UPDATE CENTRO_ESCOLAR SET "
+			+ "id_municipio=:idMunicipio,"
+			+ "centro_escolar=:centroEscolar,"
+			+ "estado=:Estado"
+			+ "WHERE id_centro_escolar=:idCentroEscolar")
+	public void updateCentroEscolar(Integer idCentroEscolar, Integer idMunicipio, String centroEscolar, boolean Estado) throws DataAccessException;
 
 }
