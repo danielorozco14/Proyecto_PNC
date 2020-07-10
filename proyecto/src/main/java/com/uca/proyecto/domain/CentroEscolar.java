@@ -32,7 +32,7 @@ public class CentroEscolar {
 	
 	@JoinColumn(name = "id_municipio")
 	@ManyToOne(fetch=FetchType.LAZY)
-    private Municipio id_municipio;
+    Municipio id_municipio;
 
 	@NotEmpty(message = "Este campo es obligatorio")
     @Column(name = "centro_escolar")
@@ -74,11 +74,11 @@ public class CentroEscolar {
 	}
 
 
-	public String getCentro_escolar() {
+	public String getCentroEscolar() {
 		return centroEscolar;
 	}
 
-	public void setCentro_escolar(String centro_escolar) {
+	public void setCentroEscolar(String centro_escolar) {
 		this.centroEscolar = centro_escolar;
 	}
 
