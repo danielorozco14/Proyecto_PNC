@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <title>Catalogo - Centros Escolares</title>
+
 <link rel = "stylesheet"  type = "text/css"   href = "index.css" />
 </head>
 <body>
+
 	<h3>Catalogo de Centros Escolares</h3>
 	
 				
-	
+	<a th:href="@{/new/}">NEW</a>
 			<table class="table">
 				<thead>
 					<th scope="col">Accion</th>
@@ -27,6 +29,7 @@
 						
 							<tr>
 								<th><a th:href="@{/edit/{id_centro_escolar}(id_centro_escolar=${c.id_centro_escolar})}">Editar</a></th>
+							
 								<th scope="row" th:text="${c.id_centro_escolar}"/>
 								<th scope="row" th:text="${c.centroEscolar}"/>
 								<!-- th scope="row" th:text="${c.codigoCategoria.getNombreCategoria()}"/-->

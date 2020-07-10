@@ -24,7 +24,7 @@ public class Departamento {
 
 	@Id
 	@Column(name = "id_departamento")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer id_departamento;
 	
 

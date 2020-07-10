@@ -29,6 +29,10 @@ public class Municipio {
     private Integer id_municipio;
 	
 	@Column(name = "id_departamento")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 275a1ca6ddca4a1bc685c1c398c83dd606d470cf
 	private Integer id_departamento;
 	
 
