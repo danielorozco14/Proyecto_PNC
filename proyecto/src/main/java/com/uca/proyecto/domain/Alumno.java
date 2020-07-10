@@ -60,13 +60,13 @@ public class Alumno {
 	
 
 	@NotEmpty(message = "Este campo es obligatorio")
-    @Column(name = "nombre_de_padre")
-	private String nombre_de_padre;
+    @Column(name = "nombre_padre")
+	private String nombre_padre;
 
   
 	@NotEmpty(message = "Este campo es obligatorio")
-    @Column(name = "nombre_de_madre")
-	private String nombre_de_madre;
+    @Column(name = "nombre_madre")
+	private String nombre_madre;
 
 	
 	
@@ -155,23 +155,23 @@ public class Alumno {
 	}
 
 
-	public String getNombre_de_padre() {
-		return nombre_de_padre;
+	public String getNombre_padre() {
+		return nombre_padre;
 	}
 
 
-	public void setNombre_de_padre(String nombre_de_padre) {
-		this.nombre_de_padre = nombre_de_padre;
+	public void setNombre_padre(String nombre_de_padre) {
+		this.nombre_padre = nombre_de_padre;
 	}
 
 
-	public String getNombre_de_madre() {
-		return nombre_de_madre;
+	public String getNombre_madre() {
+		return nombre_madre;
 	}
 
 
-	public void setNombre_de_madre(String nombre_de_madre) {
-		this.nombre_de_madre = nombre_de_madre;
+	public void setNombre_madre(String nombre_de_madre) {
+		this.nombre_madre = nombre_de_madre;
 	}
 
 
