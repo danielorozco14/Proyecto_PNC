@@ -1,5 +1,7 @@
 package com.uca.proyecto.controller;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -9,9 +11,9 @@ public class RestController {
 	
 	
 	@GetMapping("/")
-	public ModelAndView home() {
+	public ModelAndView index() {
 		
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView();		
 		mav.setViewName("index");
 		
 		return mav;
@@ -20,6 +22,20 @@ public class RestController {
 	@GetMapping("/user")
 	public ModelAndView user() {
 		ModelAndView mav = new ModelAndView();
+		
+		String username;
+		/*
+		 * TODO 1: Obtiene el objeto Usuario del contexto de seguridad y se guarda en Object principal
+		 */
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		if(principal instanceof UserDetails) {
+			 username = ((UserDetails)principal).getUsername();
+		}else {
+			 username = principal.toString();
+		}
+		mav.addObject("username", username);
+		
 		mav.setViewName("user");
 		
 		return mav;
@@ -27,7 +43,19 @@ public class RestController {
 	
 	@GetMapping("/admin")
 	public ModelAndView admin() {
+		
 		ModelAndView mav = new ModelAndView();
+		
+		String username;
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		
+		if(principal instanceof UserDetails) {
+			 username = ((UserDetails)principal).getUsername();
+		}else {
+			 username = principal.toString();
+		}
+		mav.addObject("username", username);
+		
 		mav.setViewName("admin");
 		
 		return mav;
