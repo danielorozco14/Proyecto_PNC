@@ -12,7 +12,7 @@
 <link rel = "stylesheet"  type = "text/css"   href = "index.css" />
 </head>
 <body>
-	<h3>Listado de Libros</h3>
+	<h3>Catalogo de Centros Escolares</h3>
 	
 		<table class="table">
 			<thead>
@@ -23,11 +23,11 @@
 				</thead>
 				<th:block th:each="c,row:${centrosEscolares}">
 					<tr>
-						<th scope="row" ><button href="/editarCentros" value="Editar"></button></th>
+						<th scope="row" ><button type="submit" class="btn btn-info" href="/editarCentros" >Editar</button></th>
 						<th scope="row" th:text="${c.id_centro_escolar}"/>
 						<th scope="row" th:text="${c.centro_escolar}"/>
 						<!-- th scope="row" th:text="${c.codigoCategoria.getNombreCategoria()}"/-->
-						<th scope="row" th:text="${c.estado}"/>
+						<th scope="row" th:text="${c.getEstadoDelegate()}"/>
 							
 					</tr>			
 				</th:block>		

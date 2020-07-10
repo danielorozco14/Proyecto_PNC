@@ -90,5 +90,9 @@ public class CentroEscolar {
 		this.estado = estado;
 	} 
 	
+	//Delegate
 	
+	public String getEstadoDelegate() {
+		return (this.estado)?"Activo":"Inactivo";
+	}
 }

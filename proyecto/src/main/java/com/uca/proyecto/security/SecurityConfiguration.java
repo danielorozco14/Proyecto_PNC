@@ -26,6 +26,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/admin").hasRole("ADMIN")
 		.antMatchers("/user").hasAnyRole("ADMIN","USER")//CAMBIAR "/user" a las rutas que solo un usuario pueda acceder
+		.antMatchers("/cat-centros").hasAnyRole("ADMIN","USER")
 		.antMatchers("/").permitAll()
 		.and()
 		.formLogin()
