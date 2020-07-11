@@ -410,5 +410,7 @@ insert into alumnoxmateria values
 (004050017,1,2012,2,8,'aprobado');
 
 insert into usuario values
-(2,'6/5/1960',1,3,'Crustaceo Kascarudo',true,'kangreburguito','root',1,004050017);
+(2,'6/5/1960',1,3,'Crustaceo Kascarudo',true,'admin','root',1,004050017);
+insert into usuario values
+(2,'6/5/1960',1,3,'Crustaceo Kascarudo',true,'user','pass',2,004050017);
 
