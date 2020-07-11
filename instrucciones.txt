@@ -1,4 +1,8 @@
 Puerto PostgreSQL: por defecto (5432
 Nombre BD: proyecto;
-Usuarios: admin1;
-pass: root;
+Usuarios admin;
+password: root;
+Usuario: user;
+password: pass;
+
+Ejecutar cambiosBD.sql luego de haber ejecutado bbdd final 2.0txt;
